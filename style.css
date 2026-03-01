@@ -106,6 +106,8 @@ h3 {
   height: 100%;
   aspect-ratio: 1 / 1; /* квадратные по умолчанию */
   object-fit: cover; /* для будущих изображений */
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Для горизонтальных фото можно задать другой aspect-ratio через доп. класс */
@@ -117,19 +119,12 @@ h3 {
   aspect-ratio: 3 / 4;
 }
 
-.photo-placeholder {
-  /* уже есть: фон, рамка, тень */
-  padding: 0; /* убираем внутренние отступы, если они есть */
-  overflow: hidden; /* чтобы изображение не вылезало за скруглённые углы */
-}
-
 .photo-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* обрезает края, сохраняя пропорции */
-  display: block; /* убирает лишний отступ снизу */
+  display: block;
 }
-
 
 /* Grid и карточки */
 .grid-2 {
@@ -138,9 +133,11 @@ h3 {
   gap: 40px;
   align-items: start;
 }
+
 .grid-2.text-include {
   grid-template-columns: 1fr 2fr;
 }
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -152,11 +149,13 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
 .grid-7 {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
 }
+
 .card {
   background: transparent;
   text-align: center;
@@ -170,8 +169,6 @@ h3 {
   font-weight: 500;
   color: #2a7a62;
 }
-
-
 
 /* Таблицы */
 table {
@@ -235,26 +232,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
-  .grid-2 {
-    gap: 30px;
-  }
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-}
 /* === Дополнительные стили для памяток (на странице Вучням) === */
 .table-container {
   overflow-x: auto;
@@ -316,7 +293,7 @@ footer {
   text-align: center;
   color: #333;
   font-weight: 500;
-  aspect-ratio: auto; /* подстраивается под текст */
+  aspect-ratio: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -330,32 +307,71 @@ footer {
   display: block;
   margin-top: 5px;
 }
-    .charming-quote {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #1e4a3d;
-      background: #e8f3ef;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 30px 0;
-      text-align: center;
-      border-left: 4px solid #2a7a62;
-    }
-    .word-list {
-      columns: 2;
-      column-gap: 30px;
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 6px;
-      margin: 10px 0;
-    }
-    .word-list p {
-      margin-bottom: 5px;
-      font-weight: 500;
-    }
-    @media (max-width: 768px) {
-      .word-list {
-        columns: 1;
-      }
-    }
+
+/* Стылі для старонкі Бацькам */
+.charming-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #1e4a3d;
+  background: #e8f3ef;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 30px 0;
+  text-align: center;
+  border-left: 4px solid #2a7a62;
+}
+
+.word-list {
+  columns: 2;
+  column-gap: 30px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.word-list p {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .grid-2, .grid-3, .grid-4, .grid-7 {
+    grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    gap: 30px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .charming-quote {
+    padding: 15px;
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+  .word-list {
+    columns: 1; /* ужо ёсць у медыя-запыце ніжэй, але для надзейнасці */
+  }
+}
+
+/* Асобны медыя-запыт для word-list (захаваны для дакладнасці) */
+@media (max-width: 768px) {
+  .word-list {
+    columns: 1;
+  }
+}
