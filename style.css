@@ -16,7 +16,15 @@ body {
   margin: 0 auto;
   padding: 20px 20px;
 }
-
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+}
+a:hover {
+  color: white;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 /* Header & navigation */
 header {
   background-color: #fff;
@@ -385,4 +393,41 @@ footer {
   .word-list {
     columns: 1;
   }
+}
+/* Стылі для кнопкі-спасылкі */
+.button {
+  margin: 10px auto;
+  display: inline-block;
+  background-color: #2a7a62;       /* асноўны зялёны колер */
+  color: #fff;                      /* белы тэкст */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;            /* прыбраць падкрэсліванне */
+  padding: 10px 20px;               /* унутраныя водступы */
+  border-radius: 4px;               /* невялікае скругленне */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* лёгкі цень */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.button:hover {
+  background-color: #1e4a3d;        /* цямнейшы адценне пры навядзенні */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.button:active {
+  transform: translateY(1px);        /* эфект націску */
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Калі трэба зрабіць кнопку на ўсю шырыню кантэйнера */
+.button.block {
+  display: block;
+  width: 100%;
 }
