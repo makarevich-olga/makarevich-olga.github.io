@@ -39,7 +39,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 15px;
 }
 
 .logo a {
@@ -505,4 +505,5 @@ footer {
 /* Курсор-указатель на всех фото */
 .photo-placeholder img {
   cursor: pointer;
+
 }
